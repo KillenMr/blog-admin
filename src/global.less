@@ -1,0 +1,60 @@
+.colorWeak {
+  filter: invert(80%);
+}
+
+.ant-layout {
+  min-height: 100vh;
+}
+.ant-pro-sider.ant-layout-sider.ant-pro-sider-fixed {
+  left: unset;
+}
+
+.ant-pro-sider-collapsed-button {
+  display: none;
+}
+.ant-menu-light .ant-menu-submenu-selected > .ant-menu-submenu-title {
+  color: #e9f3ff;
+}
+.ant-pro-global-header {
+  margin-left: 0;
+}
+.ant-breadcrumb li:last-child {
+  color: #0e42d2;
+}
+
+/* 在全局样式中设置 ProTable 的奇偶行颜色 */
+.ant-pro-table table tr:nth-child(even) {
+  background-color: #E7F2FE;
+}
+
+canvas {
+  display: block;
+}
+
+body {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+@media (max-width: 768px) {
+  .ant-table {
+    width: 100%;
+    overflow-x: auto;
+    &-thead > tr,
+    &-tbody > tr {
+      > th,
+      > td {
+        white-space: pre;
+        > span {
+          display: block;
+        }
+      }
+    }
+  }
+}
