@@ -68,7 +68,7 @@ export const layout: RunTimeLayoutConfig = ({ initialState, setInitialState }) =
         history.push(loginPath);
       }
     },
-  
+
     bgLayoutImgList: [
       {
         src: 'https://mdn.alipayobjects.com/yuyan_qk0oxh/afts/img/D2LWSqNny4sAAAAAAAAAAAAAFl94AQBr',
@@ -97,9 +97,9 @@ export const layout: RunTimeLayoutConfig = ({ initialState, setInitialState }) =
     //       </Link>,
     //     ]
     //   : [],
-    headerTitleRender: () => {
-      return <div style={{width: 240, background: '#0E42D2',  borderBottom: `1px solid #E7F3FF`, height: 56, color: '#E7F3FF', paddingLeft: 28}} >LOGO</div>;
-    },
+    // headerTitleRender: () => {
+    //   return <div style={{width: 240, background: '#0E42D2',  borderBottom: `1px solid #E7F3FF`, height: 56, color: '#E7F3FF', paddingLeft: 28}} >LOGO</div>;
+    // },
     // 自定义 403 页面
     // unAccessible: <div>unAccessible</div>,
     // 增加一个 loading 的状态

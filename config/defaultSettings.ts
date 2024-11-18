@@ -9,15 +9,15 @@ const Settings: ProLayoutProps & {
 } = {
   navTheme: 'light',
   colorPrimary: '#165DFE',
-  
-  layout: 'mix',
+
+  layout: 'top',
   contentWidth: 'Fixed',
   fixedHeader: false,
   fixSiderbar: true,
   colorWeak: false,
   collapsed: false,
   siderWidth: 240,
-  title: '机场勤务系统',
+  title: '李世鹏 Blog',
   pwa: true,
   logo: 'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg',
   iconfontUrl: '',

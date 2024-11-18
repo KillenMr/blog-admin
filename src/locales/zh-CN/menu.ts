@@ -1,7 +1,6 @@
 export default {
   'menu.welcome': '欢迎',
   'menu.more-blocks': '更多区块',
-  'menu.home': '首页',
   'menu.admin': '管理页',
   'menu.admin.sub-page': '二级管理页',
   'menu.login': '登录',
@@ -25,7 +24,13 @@ export default {
   'menu.personnel-management': '人员管理',
   'menu.personnel-management.personnel-management': '人员管理',
 
-  'menu.dashboard': 'Dashboard',
+  'menu.home': 'Home',
+  'menu.search': 'Search',
+  'menu.browse': 'Browse',
+  'menu.submit': 'Submit',
+  'menu.download': 'Download',
+  'menu.help': 'Help',
+
   'menu.dashboard.analysis': '分析页',
   'menu.dashboard.monitor': '监控页',
   'menu.dashboard.workplace': '工作台',

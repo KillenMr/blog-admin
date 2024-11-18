@@ -2,15 +2,16 @@ import type { Request, Response } from 'express';
 import type { CardListItemDataType } from './data.d';
 
 const titles = [
-  'Alipay',
-  'Angular',
-  'Ant Design',
-  'Ant Design Pro',
-  'Bootstrap',
-  'React',
-  'Vue',
-  'Webpack',
+  '小麦基因组测序',
+  '小麦基因编辑',
+  '农业基因组学',
+  'CRISPR 在作物科学中的应用',
+  '抗旱基因研究',
+  '小麦产量改良',
+  '作物遗传多样性',
+  '基因组辅助植物育种',
 ];
+
 const avatars = [
   'https://gw.alipayobjects.com/zos/rmsportal/WdGqmHpayyMjiEhcKoVE.png', // Alipay
   'https://gw.alipayobjects.com/zos/rmsportal/zOsKZmFRdUtvpqCImOVY.png', // Angular

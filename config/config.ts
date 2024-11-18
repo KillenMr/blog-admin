@@ -77,7 +77,7 @@ export default defineConfig({
    * @name layout 插件
    * @doc https://umijs.org/docs/max/layout-menu
    */
-  title: '机场勤务系统',
+  title: '李世鹏 Blog',
   layout: {
     locale: true,
     ...defaultSettings,

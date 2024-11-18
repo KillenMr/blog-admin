@@ -12,140 +12,40 @@
  */
 export default [
   {
-    path: '/user',
-    layout: false,
-    routes: [
-      {
-        path: '/user/login',
-        layout: false,
-        name: 'login',
-        component: './user/login',
-      },
-      {
-        path: '/user',
-        redirect: '/user/login',
-      },
-      {
-        name: 'register-result',
-        icon: 'smile',
-        path: '/user/register-result',
-        component: './user/register-result',
-      },
-      {
-        name: 'register',
-        icon: 'smile',
-        path: '/user/register',
-        component: './user/register',
-      },
-      // {
-      //   component: '404',
-      //   path: '/*',
-      // },
-    ],
+    path: '/home',
+    name: 'home',
+    icon: 'Home',
+    component: './home',
   },
   {
-    path: '/task-management',
-    name: 'task-management',
-    icon: 'dashboard',
-    routes: [
-      {
-        path: '/task-management',
-        redirect: '/task-management/task-acceptance',
-      },
-      {
-        name: 'task-acceptance',
-        icon: 'smile',
-        path: '/task-management/task-acceptance',
-        component: './task-management/task-acceptance',
-      },
-      {
-        name: 'task-assignment',
-        icon: 'smile',
-        path: '/task-management/task-assignment',
-        component: './task-management/task-assignment',
-      },
-      {
-        name: 'task-template',
-        icon: 'smile',
-        path: '/task-management/task-template',
-        component: './task-management/task-template',
-      },
-      {
-        name: 'task-ledger',
-        icon: 'smile',
-        path: '/task-management/task-ledger',
-        component: './task-management/task-ledger',
-      },
-    ],
+    name: 'browse',
+    icon: 'smile',
+    path: '/browse',
+    component: './browse',
   },
   {
-    path: '/task-configuration',
-    name: 'task-configuration',
-    icon: 'table',
-    routes: [
-      {
-        path: '/task-configuration',
-        redirect: '/task-configuration/position-configuration',
-      },
-      {
-        name: 'position-configuration',
-        icon: 'smile',
-        path: '/task-configuration/position-configuration',
-        component: './task-configuration/position-configuration',
-      },
-      {
-        name: 'vehicle-configuration',
-        icon: 'smile',
-        path: '/task-configuration/vehicle-configuration',
-        component: './task-configuration/vehicle-configuration',
-      },
-      {
-        name: 'reverse-scheduling-configuration',
-        icon: 'smile',
-        path: '/task-configuration/reverse-scheduling-configuration',
-        component: './task-configuration/reverse-scheduling-configuration',
-      },
-      {
-        name: 'emergency-plan-management',
-        icon: 'smile',
-        path: '/task-configuration/emergency-plan-management',
-        component: './task-configuration/emergency-plan-management',
-      },
-    ],
+    name: 'search',
+    icon: 'smile',
+    path: '/search',
+    component: './search',
   },
   {
-    path: '/task-inspection',
-    name: 'task-inspection',
-    icon: 'form',
-    routes: [
-      {
-        path: '/task-inspection',
-        redirect: '/task-inspection/task-acceptance',
-      },
-      {
-        name: 'task-execution',
-        icon: 'smile',
-        path: '/task-inspection/task-execution',
-        component: './task-inspection/task-execution',
-      },
-    ],
+    name: 'submit',
+    icon: 'smile',
+    path: '/submit',
+    component: './submit',
   },
   {
-    path: '/personnel-management',
-    name: 'personnel-management',
-    icon: 'profile',
-    routes: [
-      {
-        path: '/personnel-management',
-        redirect: '/personnel-management/personnel-management',
-      },
-      {
-        name: 'personnel-management',
-        icon: 'smile',
-        path: '/personnel-management/personnel-management',
-        component: './personnel-management/personnel-management',
-      },
-    ],
+    name: 'download',
+    icon: 'smile',
+    path: '/download',
+    component: './download',
+  },
+  {
+    name: 'help',
+    icon: 'smile',
+    path: '/help',
+    component: './help',
   },
 
   // {
@@ -364,7 +264,7 @@ export default [
   // },
   {
     path: '/',
-    redirect: '/task-management',
+    redirect: '/home',
   },
   {
     component: '404',
