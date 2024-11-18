@@ -28,6 +28,54 @@ export default [
     icon: 'smile',
     path: '/search',
     component: './search',
+    routes: [
+      {
+        path: '/search',
+        redirect: '/search',
+      },
+      {
+        name: 'search-seq',
+        icon: 'smile',
+        path: '/search/search-seq',
+        component: './search/search-seq',
+      },
+      {
+        name: 'search-markers',
+        icon: 'smile',
+        path: '/search/search-markers',
+        component: './search/search-markers',
+      },
+    ],
+  },
+  {
+    name: 'tools',
+    icon: 'smile',
+    path: '/tools',
+    component: './tools',
+    routes: [
+      {
+        path: '/tools',
+        redirect: '/tools',
+      },
+      {
+        name: 'j-browse',
+        icon: 'smile',
+        path: '/tools/j-browse',
+        component: './tools/j-browse',
+      },
+      {
+        name: 'blast',
+        icon: 'smile',
+        path: '/tools/blast',
+        component: './tools/blast',
+      },
+    ],
+  },
+  {
+    name: 'userguides',
+    icon: 'smile',
+    path: '/userguides',
+    component: './userguides',
   },
   {
     name: 'submit',
@@ -41,12 +89,12 @@ export default [
     path: '/download',
     component: './download',
   },
-  {
-    name: 'help',
-    icon: 'smile',
-    path: '/help',
-    component: './help',
-  },
+  // {
+  //   name: 'help',
+  //   icon: 'smile',
+  //   path: '/help',
+  //   component: './help',
+  // },
 
   // {
   //   path: '/dashboard',

@@ -27,9 +27,10 @@ export default {
   'menu.home': 'Home',
   'menu.search': 'Search',
   'menu.browse': 'Browse',
+  'menu.tools': 'Tools',
   'menu.submit': 'Submit',
   'menu.download': 'Download',
-  'menu.help': 'Help',
+  'menu.userguides': 'User guides',
 
   'menu.dashboard.analysis': '分析页',
   'menu.dashboard.monitor': '监控页',

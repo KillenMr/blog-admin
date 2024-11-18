@@ -17,9 +17,9 @@ const Settings: ProLayoutProps & {
   colorWeak: false,
   collapsed: false,
   siderWidth: 240,
-  title: '李世鹏 Blog',
+  title: 'Plant Flower Tissue Cell Marker',
   pwa: true,
-  logo: 'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg',
+  logo: './logo.svg',
   iconfontUrl: '',
   token: {
     // 参见ts声明，demo 见文档，通过token 修改样式

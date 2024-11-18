@@ -1,11 +1,9 @@
-import { Radar } from '@ant-design/plots';
 import { PageContainer } from '@ant-design/pro-components';
-import { Link, useRequest } from '@umijs/max';
-import { Avatar, Card, Col, List, Row, Skeleton, Statistic } from 'antd';
+import { useRequest } from '@umijs/max';
+import { Avatar, List, Skeleton, Statistic } from 'antd';
 import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
 import type { FC } from 'react';
-import EditableLinkGroup from './components/EditableLinkGroup';
 import type { ActivitiesType, CurrentUser } from './data.d';
 import { fakeChartData, queryActivities, queryProjectNotice } from './service';
 import useStyles from './style.style';
@@ -126,159 +124,32 @@ const Workplace: FC = () => {
   };
 
   return (
-    <PageContainer
-      title=" "
-      content={
-        <PageHeaderContent
-          currentUser={{
-            avatar: 'https://gw.alipayobjects.com/zos/rmsportal/BiazfanxmamNRoxxVxka.png',
-            name: '李世鹏',
-            userid: '00000001',
-            email: 'antdesign@alipay.com',
-            signature: '海纳百川，有容乃大',
-            title: '知名博士',
-            group: '华北农业研究院',
-          }}
+    <PageContainer title=" ">
+      <div className="flex justify-around mb-20">
+        <img
+          style={{ width: '46%', objectFit: 'contain' }}
+          src={require('../../../public/images/home/left.png')}
         />
-      }
-      extraContent={<ExtraContent />}
-    >
-      <Row gutter={24}>
-        <Col xl={16} lg={24} md={24} sm={24} xs={24}>
-          <Card
-            className={styles.projectList}
-            style={{
-              marginBottom: 24,
-            }}
-            title="进行中的项目"
-            bordered={false}
-            extra={<Link to="/">全部项目</Link>}
-            loading={projectLoading}
-            bodyStyle={{
-              padding: 0,
-            }}
-          >
-            {projectNotice.map((item) => (
-              <Card.Grid className={styles.projectGrid} key={item.id}>
-                <Card
-                  bodyStyle={{
-                    padding: 0,
-                  }}
-                  bordered={false}
-                >
-                  <Card.Meta
-                    title={
-                      <div className={styles.cardTitle}>
-                        <Avatar size="small" src={item.logo} />
-                        <Link to={item.href || '/'}>{item.title}</Link>
-                      </div>
-                    }
-                    description={item.description}
-                  />
-                  <div className={styles.projectItemContent}>
-                    <Link to={item.memberLink || '/'}>{item.member || ''}</Link>
-                    {item.updatedAt && (
-                      <span className={styles.datetime} title={item.updatedAt}>
-                        {dayjs(item.updatedAt).fromNow()}
-                      </span>
-                    )}
-                  </div>
-                </Card>
-              </Card.Grid>
-            ))}
-          </Card>
-          <Card
-            bodyStyle={{
-              padding: 0,
-            }}
-            bordered={false}
-            className={styles.activeCard}
-            title="动态"
-            loading={activitiesLoading}
-          >
-            <List<ActivitiesType>
-              loading={activitiesLoading}
-              renderItem={(item) => renderActivities(item)}
-              dataSource={activities}
-              className={styles.activitiesList}
-              size="large"
-            />
-          </Card>
-        </Col>
-        <Col xl={8} lg={24} md={24} sm={24} xs={24}>
-          <Card
-            style={{
-              marginBottom: 24,
-            }}
-            title="快速开始 / 便捷导航"
-            bordered={false}
-            bodyStyle={{
-              padding: 0,
-            }}
-          >
-            <EditableLinkGroup onAdd={() => {}} links={links} linkElement={Link} />
-          </Card>
-          <Card
-            style={{
-              marginBottom: 24,
-            }}
-            bordered={false}
-            title="XX 指数"
-            loading={data?.radarData?.length === 0}
-          >
-            <div>
-              <Radar
-                height={343}
-                data={data?.radarData || []}
-                xField="label"
-                colorField="name"
-                yField="value"
-                shapeField="smooth"
-                area={{
-                  style: {
-                    fillOpacity: 0.4,
-                  },
-                }}
-                axis={{
-                  y: {
-                    gridStrokeOpacity: 0.5,
-                  },
-                }}
-                legend={{
-                  color: {
-                    position: 'bottom',
-                    layout: { justifyContent: 'center' },
-                  },
-                }}
-              />
-            </div>
-          </Card>
-          <Card
-            bodyStyle={{
-              paddingTop: 12,
-              paddingBottom: 12,
-            }}
-            bordered={false}
-            title="团队"
-            loading={projectLoading}
-          >
-            <div className={styles.members}>
-              <Row gutter={48}>
-                {projectNotice.map((item) => {
-                  return (
-                    <Col span={12} key={`members-item-${item.id}`}>
-                      <a>
-                        <Avatar src={item.logo} size="small" />
-                        <span className={styles.member}>{item.member.substring(0, 3)}</span>
-                      </a>
-                    </Col>
-                  );
-                })}
-              </Row>
-            </div>
-          </Card>
-        </Col>
-      </Row>
+        <img
+          style={{ width: '26%', objectFit: 'contain' }}
+          src={require('../../../public/images/home/right.png')}
+        />
+      </div>
+      <div className="flex-col  justify-items-center bg-gray-200 p-8">
+        <div className="text-lg font-semibold mb-8 font-mono">Introduction</div>
+        <div className="text-base font-mono text-justify">
+          Up to now, growing studies have focused on explaining the growth and development of plants
+          at the level of single cells, and at the same time, numerous of single-cell data sets have
+          been generated. In order to understand the composition of cells, marker genes are widely
+          used in single-cell datasets to distinguish different cell types. At the same time,
+          related plant marker gene databases have also been developed by researchers, but they
+          simply collected and listed the data about plant marker genes, and did not show their
+          transcription levels in the corresponding tissues in detail. Now we have developed a
+          marker gene database for plant reproductive organs, with the aim of showing the expression
+          of marker genes in plant reproductive organs in detail from a multi-omics perspective and
+          providing researchers with a comprehensive insight.
+        </div>
+      </div>
     </PageContainer>
   );
 };
