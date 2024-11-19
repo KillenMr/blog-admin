@@ -27,11 +27,10 @@ export default [
     name: 'search',
     icon: 'smile',
     path: '/search',
-    component: './search',
     routes: [
       {
         path: '/search',
-        redirect: '/search',
+        redirect: '/search/search-seq',
       },
       {
         name: 'search-seq',

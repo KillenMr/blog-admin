@@ -19,7 +19,7 @@ const Settings: ProLayoutProps & {
   siderWidth: 240,
   title: 'Plant Flower Tissue Cell Marker',
   pwa: true,
-  logo: './logo.svg',
+  logo: null,
   iconfontUrl: '',
   token: {
     // 参见ts声明，demo 见文档，通过token 修改样式
