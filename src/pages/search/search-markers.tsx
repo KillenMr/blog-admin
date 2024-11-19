@@ -40,13 +40,13 @@ const TableList: React.FC = () => {
 
   const columns: ProColumns<any>[] = [
     {
-      title: 'Species Type',
+      title: 'Species',
       dataIndex: 'species_type',
       valueType: 'select',
       fieldProps: {
         options: [
-          { label: 'Active', value: 'active' },
-          { label: 'Inactive', value: 'inactive' },
+          { label: 'Human', value: 'Human' },
+          { label: 'Mouse', value: 'Mouse' },
         ],
       },
     },
