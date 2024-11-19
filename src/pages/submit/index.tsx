@@ -6,6 +6,7 @@ import {
   ProForm,
   ProFormSelect,
   ProFormText,
+  ProFormTextArea,
 } from '@ant-design/pro-components';
 import { Card, Col, message, Popover, Row } from 'antd';
 import type { FC } from 'react';
@@ -125,37 +126,6 @@ const AdvancedForm: FC<Record<string, any>> = () => {
     setError(errorInfo.errorFields);
   };
 
-  const columns: ProColumnType<TableFormDateType>[] = [
-    {
-      title: '基因名称',
-      dataIndex: 'geneName',
-      key: 'geneName',
-      width: '20%',
-    },
-    {
-      title: '基因编号',
-      dataIndex: 'geneId',
-      key: 'geneId',
-      width: '20%',
-    },
-    {
-      title: '所属研究部门',
-      dataIndex: 'department',
-      key: 'department',
-      width: '40%',
-    },
-    {
-      title: '操作',
-      key: 'action',
-      valueType: 'option',
-      render: (_, record) => (
-        <a key="edit" onClick={() => record.editable && alert('编辑')}>
-          编辑
-        </a>
-      ),
-    },
-  ];
-
   return (
     <ProForm
       layout="vertical"
@@ -172,68 +142,78 @@ const AdvancedForm: FC<Record<string, any>> = () => {
       onFinish={onFinish}
       onFinishFailed={onFinishFailed}
     >
-      <PageContainer content="此表单用于农业基因研究项目的数据管理。">
-        <Card title="基因库信息" className={styles.card} bordered={false}>
+      <PageContainer content="Welcome to submit new data to CellMarker. Please enter all of the information you have about the data to help us update. Once the submitted records approved by us, they will be public available in the coming release. Thank you for your contribution.">
+        <Card title="Basis Information" className={styles.card} bordered={false}>
           <Row gutter={16}>
             <Col lg={6} md={12} sm={24}>
-              <ProFormText
-                label={fieldLabels.name}
-                name="name"
-                rules={[{ required: true, message: '请输入基因库名称' }]}
-                placeholder="请输入基因库名称"
+              <ProFormSelect
+                label={'Species'}
+                name="species"
+                // rules={[{ required: true, message: '请选择负责人' }]}
+                options={[
+                  { label: 'human', value: 'human' },
+                  { label: 'mouse', value: 'mouse' },
+                ]}
+                placeholder="请选择输入"
               />
+              <ProFormText label={'Cell Type'} name="cellType" placeholder="请输入" />
+              <ProFormText label={'E-mail'} name="email" placeholder="Your E-Mail" />
             </Col>
             <Col lg={8} md={12} sm={24}>
               <ProFormText
-                label={fieldLabels.url}
-                name="url"
-                rules={[{ required: true, message: '请输入基因库地址' }]}
-                fieldProps={{ addonBefore: 'http://', addonAfter: '.org' }}
-                placeholder="请输入基因库地址"
+                label={'Cancer Type'}
+                name="cancerType"
+                // rules={[{ required: true, message: '' }]}
+                // fieldProps={{ addonBefore: 'http://', addonAfter: '.org' }}
+                placeholder="请输入"
+              />
+              <ProFormText
+                label={'Source'}
+                name="source"
+                placeholder="Single-cell sequencing OR Experiment"
               />
             </Col>
             <Col lg={10} md={24} sm={24}>
-              <ProFormSelect
-                label={fieldLabels.owner}
-                name="owner"
-                rules={[{ required: true, message: '请选择负责人' }]}
-                options={[
-                  { label: '李四', value: 'li' },
-                  { label: '张三', value: 'zhang' },
-                ]}
-                placeholder="请选择负责人"
-              />
+              <ProFormText label={'Tissue Type'} name="tissueType" placeholder="请选择输入" />
+              <ProFormText label={'Name'} name="name" placeholder="Your name" />
             </Col>
           </Row>
         </Card>
 
-        <Card title="任务管理" className={styles.card} bordered={false}>
+        <Card title="Paper Information" className={styles.card} bordered={false}>
           <Row gutter={16}>
             <Col lg={6} md={12} sm={24}>
               <ProFormText
-                label={fieldLabels.name2}
-                name="name2"
-                rules={[{ required: true, message: '请输入任务名' }]}
-                placeholder="任务名"
+                label={'PMID'}
+                name="PMID"
+                // rules={[{ required: true, message: '请输入任务名' }]}
+                // placeholder="任务名"
               />
             </Col>
             <Col lg={8} md={12} sm={24}>
               <ProFormText
-                label={fieldLabels.url2}
-                name="url2"
-                rules={[{ required: true, message: '请输入任务描述' }]}
-                placeholder="任务描述"
+                label={'Journal'}
+                name="Journal"
+                // rules={[{ required: true, message: '请输入任务描述' }]}
+                // placeholder="任务描述"
               />
             </Col>
             <Col lg={10} md={24} sm={24}>
-              <ProFormSelect
-                label={fieldLabels.owner2}
-                name="owner2"
-                rules={[{ required: true, message: '请选择执行人' }]}
-                options={[
-                  { label: '王五', value: 'wang' },
-                  { label: '赵六', value: 'zhao' },
-                ]}
+              <ProFormText
+                label={'Year'}
+                name="Year"
+                // rules={[{ required: true, message: '请输入任务描述' }]}
+                // placeholder="任务描述"
+              />
+            </Col>
+          </Row>
+          <Row gutter={16}>
+            <Col lg={24} md={24} sm={24}>
+              <ProFormTextArea
+                name="Evidence"
+                label="Evidence"
+                // placeholder=""
+                fieldProps={{ rows: 4 }}
               />
             </Col>
           </Row>
