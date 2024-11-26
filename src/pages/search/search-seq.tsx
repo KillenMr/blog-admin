@@ -1,4 +1,5 @@
 import { removeRule, rule } from '@/services/ant-design-pro/api';
+import { getGenesList } from '@/services/blogApi';
 import type { ActionType, ProColumns, ProDescriptionsItemProps } from '@ant-design/pro-components';
 import {
   FooterToolbar,
@@ -21,7 +22,6 @@ const TableList: React.FC = () => {
    * @en-US International configuration
    * @zh-CN 国际化配置
    * */
-  const intl = useIntl();
 
   const [messageApi, contextHolder] = message.useMessage();
 
@@ -38,95 +38,73 @@ const TableList: React.FC = () => {
     },
   });
 
+  // const { data: genesList, loading: genesLogin } = useRequest(getGenesList);
+
   const columns: ProColumns<any>[] = [
     {
-      title: 'Species Type',
+      title: 'Species',
       dataIndex: 'species_type',
       //   hideInSearch: true,
     },
     {
-      title: 'Program',
-      dataIndex: 'program',
-      hidden: true,
+      title: 'Cell Marker Name',
+      dataIndex: 'cell_marker_name',
+      // hideInSearch: true,
     },
     {
-      title: 'Database',
-      dataIndex: 'database',
-      hidden: true,
+      title: 'gene symbol',
+      dataIndex: 'gene_symbol',
+      // hideInSearch: true,
     },
+
     {
-      title: 'E-value',
-      dataIndex: 'eValue',
-      hidden: true,
-    },
-    {
-      title: 'first',
-      dataIndex: 'first',
+      title: 'gene aliases',
+      dataIndex: 'gene_aliases',
       hideInSearch: true,
     },
     {
-      title: 'second',
-      dataIndex: 'second',
+      title: 'gene description',
+      dataIndex: 'gene_description',
       hideInSearch: true,
     },
     {
-      title: 'third',
-      dataIndex: 'third',
+      title: 'Gene ID',
+      dataIndex: 'gene_id',
       hideInSearch: true,
     },
     {
-      title: 'Cell_marker_name',
-      dataIndex: 'Cell_marker_name',
+      title: 'Gene Type',
+      dataIndex: 'gene_type',
       hideInSearch: true,
     },
     {
-      title: 'Gene_symbol',
-      dataIndex: 'Gene_symbol',
+      title: 'NCBI Gene Id',
+      dataIndex: 'gene_type',
       hideInSearch: true,
     },
     {
-      title: 'Gene_id',
-      dataIndex: 'Gene_id',
+      title: 'source',
+      dataIndex: 'source',
       hideInSearch: true,
     },
     {
-      title: 'Gene_id_rap',
-      dataIndex: 'Gene_id_rap',
+      title: 'PMID_E',
+      dataIndex: 'PMID_E',
       hideInSearch: true,
     },
-    {
-      title: 'Protein_name',
-      dataIndex: 'Protein_name',
-      hideInSearch: true,
-    },
-    {
-      title: 'Protein_id',
-      dataIndex: 'Protein_id',
-      hideInSearch: true,
-    },
-    {
-      title: 'Marker_resource',
-      dataIndex: 'Marker_resource',
-      hideInSearch: true,
-    },
-    {
-      title: 'Note_gene_type',
-      dataIndex: 'Note_gene_type',
-      hideInSearch: true,
-    },
-    {
-      title: '操作',
-      fixed: 'right',
-      dataIndex: 'option',
-      valueType: 'option',
-      align: 'center',
-      width: 50,
-      render: (_, record) => [
-        <a key="subscribeAlert" href="https://procomponents.ant.design/">
-          删除
-        </a>,
-      ],
-    },
+    // {
+    //   title: '操作',
+    //   fixed: 'right',
+    //   dataIndex: 'option',
+    //   valueType: 'option',
+    //   align: 'center',
+    //   width: 50,
+    //   render: (_, record) => [
+    //     <a key="subscribeAlert" href="https://procomponents.ant.design/">
+    //       删除
+    //     </a>,
+    //   ],
+    // },
   ];
 
   /**
@@ -154,7 +132,7 @@ const TableList: React.FC = () => {
 
   return (
     <PageContainer title={' '}>
-      <ProTable<API.RuleListItem, API.PageParams>
+      <ProTable
         headerTitle={''}
         scroll={{ x: 1600 }}
         actionRef={actionRef}
@@ -163,7 +141,36 @@ const TableList: React.FC = () => {
           labelWidth: 120,
         }}
         // toolBarRender={() => [<CreateForm key="create" reload={actionRef.current?.reload} />]}
-        request={rule}
+        request={async (
+          // 第一个参数 params 查询表单和 params 参数的结合
+          // 第一个参数中一定会有 pageSize 和  current ，这两个参数是 antd 的规范
+          params: {
+            pageSize: number;
+            current: number;
+          },
+          sort,
+          filter,
+        ) => {
+          console.log('params >>>', params);
+          const { current, pageSize, gene_symbol, cell_marker_name, species_type } = params || {};
+          let queryParams: any = {
+            'pagination[page]': current,
+            'pagination[pageSize]': pageSize,
+          };
+          if (gene_symbol) queryParams['filters[gene_symbol][$eq]'] = gene_symbol;
+          if (cell_marker_name) queryParams['filters[cell_marker_name][$eq]'] = cell_marker_name;
+          if (species_type) queryParams['filters[species_type][$eq]'] = species_type;
+          const msg = await getGenesList(queryParams);
+          console.log('mesg >>>', msg);
+          return {
+            data: msg.data,
+            // success 请返回 true，
+            // 不然 table 会停止解析数据，即使有数据
+            success: true,
+            // 不传会使用 data 的长度，如果是分页一定要传
+            total: msg.meta.pagination.total,
+          };
+        }}
         columns={columns}
         rowSelection={{
           onChange: (_, selectedRows) => {
