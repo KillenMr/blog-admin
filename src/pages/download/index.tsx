@@ -48,31 +48,31 @@ const TableList: React.FC = () => {
     },
     {
       fileName: 'Brassica napus',
-      desc: 'Cell markers of different cell types from different tissues in Arabidopsis thaliana',
+      desc: 'Cell markers of different cell types from different tissues in Brassica napus',
     },
     {
       fileName: 'Maize',
-      desc: 'Cell markers of different cell types from different tissues in Arabidopsis thaliana',
+      desc: 'Cell markers of different cell types from different tissues in Maize',
     },
     {
       fileName: 'Nicotiana tabacum',
-      desc: 'Cell markers of different cell types from different tissues in Arabidopsis thaliana',
+      desc: 'Cell markers of different cell types from different tissues in Nicotiana tabacum',
     },
     {
       fileName: 'Sorghum',
-      desc: 'Cell markers of different cell types from different tissues in Arabidopsis thaliana',
+      desc: 'Cell markers of different cell types from different tissues in Sorghum',
     },
     {
       fileName: 'Tomato',
-      desc: 'Cell markers of different cell types from different tissues in Arabidopsis thaliana',
+      desc: 'Cell markers of different cell types from different tissues in Tomato',
     },
     {
       fileName: 'Peanut',
-      desc: 'Cell markers of different cell types from different tissues in Arabidopsis thaliana',
+      desc: 'Cell markers of different cell types from different tissues in Peanut',
     },
     {
       fileName: 'Glycine max',
-      desc: 'Cell markers of different cell types from different tissues in Arabidopsis thaliana',
+      desc: 'Cell markers of different cell types from different tissues in Glycine max',
     },
   ];
 

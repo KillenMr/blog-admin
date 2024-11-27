@@ -17,12 +17,12 @@ export default [
     icon: 'Home',
     component: './home',
   },
-  {
-    name: 'browse',
-    icon: 'smile',
-    path: '/browse',
-    component: './browse',
-  },
+  // {
+  //   name: 'browse',
+  //   icon: 'smile',
+  //   path: '/browse',
+  //   component: './browse',
+  // },
   {
     name: 'search',
     icon: 'smile',

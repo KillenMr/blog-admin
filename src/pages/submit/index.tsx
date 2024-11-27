@@ -157,16 +157,16 @@ const AdvancedForm: FC<Record<string, any>> = () => {
                 placeholder="请选择输入"
               />
               <ProFormText label={'Cell Type'} name="cellType" placeholder="请输入" />
-              <ProFormText label={'E-mail'} name="email" placeholder="Your E-Mail" />
             </Col>
             <Col lg={8} md={12} sm={24}>
-              <ProFormText
+              {/* <ProFormText
                 label={'Cancer Type'}
                 name="cancerType"
                 // rules={[{ required: true, message: '' }]}
                 // fieldProps={{ addonBefore: 'http://', addonAfter: '.org' }}
                 placeholder="请输入"
-              />
+              /> */}
+              <ProFormText label={'E-mail'} name="email" placeholder="Your E-Mail" />
               <ProFormText
                 label={'Source'}
                 name="source"
