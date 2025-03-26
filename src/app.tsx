@@ -136,5 +136,10 @@ export const layout: RunTimeLayoutConfig = ({ initialState, setInitialState }) =
 export const request: RequestConfig = {
   // baseURL: 'https://proapi.azurewebsites.net',
   baseURL: 'http://154.8.204.231:1337',
+  headers: {
+    'Content-Type': 'application/json',
+    Authorization:
+      'Bearer 5b8f148cf6916e2fe30ba8a8fcc4aa395ec9158ddcaf8873662ebb036b747bf77f15f942fc9113e4b1eed5b6bf64bb51947ebd731f3f9b9952ca195c0298c1cdc3a6fd52c02554d3f3c5560fb60009d908f867b04f7f57fe5f6ac267ca971b3c5bed7f7b00d05c088266a9f316bf570b15d6385530f0315293bd3b18345e5cb8',
+  },
   ...errorConfig,
 };

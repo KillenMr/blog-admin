@@ -52,24 +52,23 @@ const TableList: React.FC = () => {
       // hideInSearch: true,
     },
     {
-      title: 'gene symbol',
+      title: 'Gene Symbol',
       dataIndex: 'gene_symbol',
       // hideInSearch: true,
     },
-
     {
-      title: 'gene aliases',
-      dataIndex: 'gene_aliases',
+      title: 'Also Known As',
+      dataIndex: 'also_known_as',
       hideInSearch: true,
     },
     {
-      title: 'gene description',
+      title: 'Gene Description',
       dataIndex: 'gene_description',
       hideInSearch: true,
     },
     {
-      title: 'Gene ID',
-      dataIndex: 'gene_id',
+      title: 'Species Gene ID',
+      dataIndex: 'species_gene_id',
       hideInSearch: true,
     },
     {
@@ -78,18 +77,77 @@ const TableList: React.FC = () => {
       hideInSearch: true,
     },
     {
-      title: 'NCBI Gene Id',
-      dataIndex: 'gene_type',
+      title: 'NCBI Gene ID',
+      dataIndex: 'ncbi_gene_id',
+      hideInSearch: true,
+      render: (_, record) => (
+        <a
+          href={record.ncbi_gene_id_hyperlink}
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{ color: 'blue' }}
+        >
+          {record.ncbi_gene_id}
+        </a>
+      ),
+    },
+    {
+      title: 'NCBI mRNA ID',
+      dataIndex: 'ncbi_mrna_id',
+      hideInSearch: true,
+      render: (_, record) => (
+        <a
+          href={record.ncbi_mrna_id_hyperlink}
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{ color: 'blue' }}
+        >
+          {record.ncbi_mrna_id}
+        </a>
+      ),
+    },
+    {
+      title: 'NCBI Protein ID',
+      dataIndex: 'ncbi_protein_id',
+      hideInSearch: true,
+      render: (_, record) => (
+        <a
+          href={record.ncbi_protein_id_hyperlink}
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{ color: 'blue' }}
+        >
+          {record.ncbi_protein_id}
+        </a>
+      ),
+    },
+    {
+      title: 'Summary',
+      dataIndex: 'summary',
+      hideInSearch: true,
+      renderText: (text: string) => {
+        const maxLength = 100; // Set your desired max length here
+        return text.length > maxLength ? `${text.substring(0, maxLength)}...` : text;
+      },
+    },
+    {
+      title: 'Marker Resource',
+      dataIndex: 'marker_resource',
       hideInSearch: true,
     },
     {
-      title: 'source',
-      dataIndex: 'source',
+      title: 'PMID Experiment',
+      dataIndex: 'pmid_experiment',
       hideInSearch: true,
     },
     {
-      title: 'PMID_E',
-      dataIndex: 'PMID_E',
+      title: 'PMID Review',
+      dataIndex: 'pmid_review',
+      hideInSearch: true,
+    },
+    {
+      title: 'PMID Sequencing',
+      dataIndex: 'pmid_sequencing',
       hideInSearch: true,
     },
     // {
