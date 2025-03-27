@@ -38,12 +38,6 @@ export default [
         path: '/search/search-seq',
         component: './search/search-seq',
       },
-      {
-        name: 'search-markers',
-        icon: 'smile',
-        path: '/search/search-markers',
-        component: './search/search-markers',
-      },
     ],
   },
   {

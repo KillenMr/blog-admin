@@ -8,11 +8,11 @@ const Footer: React.FC = () => {
       style={{
         background: 'none',
       }}
-      copyright="Powered by shipeng li"
+      copyright=""
       links={[
         {
           key: 'version',
-          title: '2024.11.1，V0.1',
+          title: '2025.02，V1.0',
           // href: 'https://pro.ant.design',
           // blankTarget: true,
         },
